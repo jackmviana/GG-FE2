@@ -17,7 +17,7 @@ return(
             <h1 className="h-6 mr-3 sm:h-9 self-center text-xl md:text-3xl font-semibold whitespace-nowrap logo">GG</h1>
         </a>
         <div className="flex items-center md:order-2">
-            <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+            <button type="button" className=" flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                 <span className="sr-only">Open user menu</span>
                 <div className="w-8 h-8 rounded-full bg-emerald-400"></div>
             </button>

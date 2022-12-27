@@ -21,13 +21,40 @@ video {
 
 #user-dropdown {
   overflow-y: visible;
+  z-index: 9999;
+}
+
+.home-div {
+  z-index: -10;
 }
 
 .home-bg {
   background: rgba(16, 18, 27, 0.91);
   backdrop-filter: blur(5px);
   position: relative;
-  z-index: -1;
+  z-index: 1;
+
+}
+
+.game-card {
+  transition: all .5s ease-in-out;
+}
+
+.video-div {
+  display: none;
+  transition: all 2s ease-in-out;
+}
+
+.game-card:hover + .video-div{
+  display: block;
+}
+
+.video-div:hover {
+  display: block;
+}
+
+.video-div iframe {
+  z-index: 10;
 }
 
 .logo {

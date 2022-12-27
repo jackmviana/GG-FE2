@@ -1,10 +1,30 @@
+import { useState, useEffect } from "react"
+import axios from "axios"
 import { Link } from "react-router-dom"
 
 
 export default function Home() {
 
-    return (
-        <div className=" flex">
+    const [game, setGame] = useState(null)
+
+
+    useEffect(() => {
+
+        const getData = async () => {
+            const response = await axios.get("http://localhost:8000/games/")
+            console.log(response.data[0])
+            setGame(response.data) 
+        }
+        
+        getData()
+    
+    }, [])
+
+    if (!game) {
+        return <h2 className="loading">LOADING</h2>
+    } else {
+        return (
+        <div className=" flex home-div">
             <script src="../path/to/flowbite/dist/flowbite.js"></script>
             <aside className=" w-20 md:w-64" aria-label="Sidebar">
             <div className="overflow-y-auto py-4 px-3 rounded h-full nav-bg">
@@ -36,9 +56,23 @@ export default function Home() {
                 </div>
             </div>
             </aside>
-
-            <div className=" h-screen w-full home-bg"></div>
-
+            
+            <div className=" game-card-grid grid-cols-3 align-middle"> </div>
+            {game.map((games) => (
+            <div className="  h-screen w-full home-bg">
+                <div className=" relative w-80 h-60 bg-red-600 grid game-card">
+                    <div className=" w-80 h-40" style ={{backgroundImage: `url(${games.photo})`, backgroundSize: 'cover'}}>
+                    </div>
+                    <div className=" game-title">
+                        <p className=" text-3xl text-gray-200">{games.title}</p>
+                    </div>
+                </div>
+                <div className=" absolute top-0 video-div">
+                    <iframe className=" w-80 h-40" src={games.video} title={games.video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            ))}
+            
         </div>
-    )
+    )}
 }
