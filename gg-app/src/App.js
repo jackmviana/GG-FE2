@@ -6,13 +6,13 @@ import Profile from './Components/Profile';
 import Home from './Components/Home'
 import Tracker from './Components/Tracker'
 import Wishlist from './Components/Wishlist';
-// import Background from './Assets/MeshVideo720.mp4'
+import Background from './Assets/MeshVideo720.mp4'
 
 function App() {
   return (
     <div className=" relative App">
       
-      {/* <video src={Background} autoPlay loop muted /> */}
+      <video src={Background} autoPlay loop muted />
       
       <div className='header'>
       <Header/>
