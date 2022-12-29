@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import ReactStars from 'react-stars'
+import React from 'react'
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 export default function Home() {
 
     const [game, setGame] = useState(null)
-
+    let navigate = useNavigate()
+    const showGame = (gamer) => {
+        navigate(`/games/${gamer.id}`)
+    }
 
     useEffect(() => {
 
@@ -27,7 +33,7 @@ export default function Home() {
         <div className=" flex home-div">
             <script src="../path/to/flowbite/dist/flowbite.js"></script>
             <aside className=" w-20 md:w-64" aria-label="Sidebar">
-            <div className="overflow-y-auto py-4 px-3 rounded h-full nav-bg">
+            <div className=" py-4 px-3 rounded h-screen nav-bg">
                 <ul className="space-y-5">
                     <li className=" md:text-2xl cursor-default font-bold">
                         Popular
@@ -56,23 +62,32 @@ export default function Home() {
                 </div>
             </div>
             </aside>
-            
-            <div className=" game-card-grid grid-cols-3 align-middle"> </div>
-            {game.map((games) => (
-            <div className="  h-screen w-full home-bg">
-                <div className=" relative w-80 h-60 bg-red-600 grid game-card">
-                    <div className=" w-80 h-40" style ={{backgroundImage: `url(${games.photo})`, backgroundSize: 'cover'}}>
+
+            <div className=" overflow-y-scroll h-screen w-full home-bg">
+                <div className=" game-card-grid grid sm:grid-cols-1 md:grid-cols-3 gap-y-10 justify-items-center mt-8">
+                {game.map((games) => (
+                <div className=" relative">
+                    <div className=" h-40 w-60 md:w-80 md:h-60 bg-gray-800 grid rounded-xl overflow-hidden game-card" onClick={() => showGame(games)}>
+                        <div className=" w-60 h-28 md:w-80 md:h-40 rounded-t-xl " style ={{backgroundImage: `url(${games.photo})`, backgroundSize: 'cover'}}>
+                        </div>
+                        <div className="">
+                            <p className=" text-center text-xl text-gray-200 game-title">{games.title}</p>
+                            <ReactStars
+                                className=" flex justify-center"
+                                value={games.star_rating}
+                                edit={false}
+                                size={'20px'}
+                                color2={'#ffd700'} />
+                        </div>
                     </div>
-                    <div className=" game-title">
-                        <p className=" text-3xl text-gray-200">{games.title}</p>
+                    <div className=" absolute top-0 video-div">
+                        <iframe className=" w-60 h-28 md:w-80 md:h-40 rounded-t-xl" src={games.video} title={games.video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div className=" absolute top-0 video-div">
-                    <iframe className=" w-80 h-40" src={games.video} title={games.video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                ))}
+                
                 </div>
             </div>
-            ))}
-            
         </div>
     )}
 }

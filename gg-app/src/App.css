@@ -1,14 +1,14 @@
 .App {
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  width: 100%;
-  height: 100vh;
   color: white;
+  background-image: url('/Users/jackviana/Desktop/GA/project-4/GG/GG-FE2/gg-app/src/Assets/mesh.png');
+  background-repeat: repeat-y;
 }
 
 video {
   width: 100%;
-  height: 100%;
+  height: 106.4%;
   object-fit: cover;
   position: absolute;
   z-index: -10;
@@ -33,7 +33,6 @@ video {
   backdrop-filter: blur(5px);
   position: relative;
   z-index: 1;
-
 }
 
 .game-card {
@@ -47,10 +46,12 @@ video {
 
 .game-card:hover + .video-div{
   display: block;
+  transition: all .5s ease-in-out;
 }
 
 .video-div:hover {
   display: block;
+  transition: all .5s ease-in-out;
 }
 
 .video-div iframe {
@@ -59,4 +60,20 @@ video {
 
 .logo {
   font-family: 'Press Start 2P', cursive;
+}
+
+.detail-bg {
+  background-color: rgba(24, 24, 24);
+}
+
+.game-rating {
+  border-width: 1px;
+}
+
+button {
+  background-color: #404040;
+}
+
+.review-bg {
+  background-color: #404040;
 }

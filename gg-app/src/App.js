@@ -6,13 +6,11 @@ import Profile from './Components/Profile';
 import Home from './Components/Home'
 import Tracker from './Components/Tracker'
 import Wishlist from './Components/Wishlist';
-import Background from './Assets/MeshVideo720.mp4'
+import GameDetails from './Components/GameDetails';
 
 function App() {
   return (
     <div className=" relative App">
-      
-      <video src={Background} autoPlay loop muted />
       
       <div className='header'>
       <Header/>
@@ -23,6 +21,7 @@ function App() {
           <Route path="/auth/login" element={<LogIn />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/games/:id" element={<GameDetails />} />
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
