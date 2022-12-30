@@ -5,9 +5,9 @@ import { useState } from "react"
 export default function CreateReview({ gameDetail }) {
 const [body, setBody] = useState({
     gameDetail_id: gameDetail.id,
-    name: gameDetail.title,
+    name: "name",
     photo: "https://imgur.com/LsLS8Gv.jpg",
-    body: "",
+    body: "gg",
 })
 
 const handleChange = (e) => {
@@ -17,7 +17,7 @@ const handleChange = (e) => {
 const handleSubmit = async (event) => {
     event.preventDefault()
     await axios
-    .post(`http://localhost:8000/games/${gameDetail.id}`, body)
+    .post(`http://localhost:8000/reviewspost/`, body)
     .then((res) => {
     })
     
