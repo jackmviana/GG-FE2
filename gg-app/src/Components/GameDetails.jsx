@@ -112,9 +112,10 @@ export default function GameDetails() {
                     {isToggled && <CreateReview gameDetail={gameDetail}/>}
                 </div>
                 
+                
+                {gameReview.slice(0).reverse().map((gameReview, id) => (  
                 <div className=" flex justify-center">
-                {gameReview.map((gameReview, id) => (  
-                    <div className=" relative my-10 h-44 w-5/6 review-bg rounded-xl" key={id}>
+                    <div className=" relative my-5 h-44 w-5/6 review-bg rounded-xl" key={id}>
                         <div className=" absolute top-4 left-4 h-7 w-7 bg-emerald-300 rounded-full"></div>
                         <p className=" absolute left-16 top-4 text-lg font-semibold">{gameReview.name}</p>
                         <div className=" absolute right-4 top-4">
@@ -126,8 +127,9 @@ export default function GameDetails() {
                         </div>        
                         <p className=" absolute left-12 md:left-16 top-14 md:top-16 text-sm md:text-base">{gameReview.body}</p>
                     </div>
-                    ))}
                 </div>
+                ))}
+                
                     
             </div>
         </div>

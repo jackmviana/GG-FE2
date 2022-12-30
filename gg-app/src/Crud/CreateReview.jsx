@@ -1,23 +1,44 @@
 import React from "react"
 import axios from "axios"
 import { useState } from "react"
+import {auth} from '../utils/firebase'
+import {useAuthState} from 'react-firebase-hooks/auth'
+import ReactStars from 'react-stars'
 
 export default function CreateReview({ gameDetail }) {
+
+const [user, loading] = useAuthState(auth)
+
+let newRating = 0;
+
+const ratingChanged = (rating) => {
+    newRating = rating;
+    console.log(newRating)
+}
+
 const [body, setBody] = useState({
     gameDetail_id: gameDetail.id,
-    name: "name",
+    name: `${user.displayName}`,
     photo: "https://imgur.com/LsLS8Gv.jpg",
-    body: "gg",
+    body: "",
+    rating: newRating,
+    user: `${user.displayName}`,
+    game: `http://localhost:8000/games/${gameDetail.id}`
 })
+
 
 const handleChange = (e) => {
     setBody({ ...body, [e.target.id]: e.target.value })
 }
 
+
 const handleSubmit = async (event) => {
     event.preventDefault()
     await axios
-    .post(`http://localhost:8000/reviewspost/`, body)
+    .post(`http://localhost:8000/reviewspost/`, {
+        ...body,
+        rating: newRating
+    })
     .then((res) => {
     })
     
@@ -27,6 +48,12 @@ return (
     <div className=" flex justify-center">
         <div className=" relative my-4 h-44 w-5/6 review-bg rounded-xl">
             <form onSubmit={handleSubmit}>
+            <ReactStars
+                count={5}
+                size={24}
+                onChange={ratingChanged}
+                value={newRating}
+                color2={'#ffd700'} />
             <input
                 className=" absolute bottom-8 left-12 h-24 w-4/6 review-bg rounded-xl"
                 id="body"
