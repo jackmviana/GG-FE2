@@ -32,23 +32,19 @@ export default function LogIn(){
     })
 
     return(
-        <div>
+        <div className=' detail-bg h-screen'>
         {!user && (
-        <div className=' bg-white p-7 rounded-3xl shadow-2xl mt-20 mx-auto w-1/3'>
-            
-            
-            <div>
-                <button onClick={GoogleLogin} className='flex mx-auto gap-2 bg-slate-700 rounded-xl shadow-2xl p-4 text-white'><FcGoogle/>Sign in with Google</button>
+            <div className=''>
+                <div className=' h-24 detail-bg'></div>
+                <button onClick={GoogleLogin} className=' flex mx-auto gap-2 bg-slate-700 rounded-xl p-8 text-white text-xl' ><FcGoogle/>Sign in with Google</button>
             </div>
-    
-        </div>
         )}  
         {user && (
             <div>
                 
                 <Profile/>
             </div>
-        )}s
+        )}
       </div>
     )
 }

@@ -35,8 +35,27 @@ video {
   z-index: 1;
 }
 
+.game-header-card-bg {
+  background: linear-gradient(180deg, #448DD9 0%, #0E274E 100%);
+  box-shadow: 5px 8px 16px 3px rgba(0, 0, 0, 0.85);
+}
+
+
+.gow {
+  filter: drop-shadow(9px 4px 2px rgba(0, 0, 0, 0.49));
+}
+
+.kratos {
+  filter: drop-shadow(9px 4px 5px rgba(0, 0, 0, 0.49));
+}
+
 .game-card {
   transition: all .5s ease-in-out;
+  box-shadow: 3px 8px 12px 3px rgba(0, 0, 0, 0.85);
+}
+
+.game-title {
+  text-shadow: 1px 1px 6px black;
 }
 
 .video-div {

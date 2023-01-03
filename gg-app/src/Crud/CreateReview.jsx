@@ -5,9 +5,10 @@ import {auth} from '../utils/firebase'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import ReactStars from 'react-stars'
 
+
 export default function CreateReview({ gameDetail }) {
 
-const [user, loading] = useAuthState(auth)
+const [user] = useAuthState(auth)
 
 let newRating = 0;
 
@@ -41,14 +42,15 @@ const handleSubmit = async (event) => {
     })
     .then((res) => {
     })
-    
+    window.location.reload();
 }
 
 return (
     <div className=" flex justify-center">
         <div className=" relative my-4 h-44 w-5/6 review-bg rounded-xl">
-            <form onSubmit={handleSubmit}>
+            <form className=" " onSubmit={handleSubmit}>
             <ReactStars
+                className=" flex justify-end mr-3 mt-3"
                 count={5}
                 size={24}
                 onChange={ratingChanged}

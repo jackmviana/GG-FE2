@@ -4,13 +4,20 @@ import { Carousel } from "flowbite-react"
 import ReactStars from "react-stars"
 import axios from "axios"
 import CreateReview from "../Crud/CreateReview"
+import {auth} from '../utils/firebase'
+import {useAuthState} from 'react-firebase-hooks/auth'
+import DeleteReview from "../Crud/DeleteReview"
+import EditReview from "../Crud/EditReview"
 
 export default function GameDetails() {
 
+    const [user] = useAuthState(auth)
     const [gameDetail, setGameDetail] = useState(null)
     const [gameReview, setGameReview] = useState(" ")
 
     const [isToggled, setIsToggled] = useState(false)
+    const [isToggledEdit, setIsToggledEdit] = useState(false)
+    const [isCurrent, setCurrent] = useState(null)
 
     const ratingChanged = (newRating) => {
         console.log(newRating)
@@ -31,6 +38,7 @@ export default function GameDetails() {
     }, [])
 
 
+
     if (!gameDetail) {
         return <h2 className="loading">LOADING</h2>
     } else {
@@ -48,12 +56,12 @@ export default function GameDetails() {
             <div className=" flex relative h-auto w-screen detail-bg">
 
                 <div className=" w-1/2 detail-left mb-20">
-                    <div className=" flex gap-8 md:gap-28 justify-center mb-10 mx-10">
+                    <div className=" flex gap-5 md:gap-28 justify-center mb-10 mx-10">
                         <div>
-                            <button className=" w-20 h-10 md:w-28 md:h-12 text-sm md:text-base text-center font-semibold rounded-lg">Add to Games</button>
+                            <button className=" w-16 h-10 md:w-28 md:h-12 text-xs md:text-base text-center font-semibold rounded-lg">Add to Games</button>
                         </div>
                         <div>
-                            <button className=" w-20 h-10 md:w-28 md:h-12 text-sm md:text-base text-center font-semibold rounded-lg">Add to Wishlist</button>
+                            <button className=" w-16 h-10 md:w-28 md:h-12 text-xs md:text-base text-center font-semibold rounded-lg">Add to Wishlist</button>
                         </div>
                     </div>
 
@@ -90,9 +98,9 @@ export default function GameDetails() {
                     <div className="h-56 sm:h-64 md:h-80 mx-2 md:mx-10">
                         <Carousel>
                         <iframe className=" h-full rounded-xl" src={gameDetail.video} title={gameDetail.video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <img className=" rounded-xl" src={gameDetail.photo} alt=""/>
-                        <img className=" rounded-xl" src={gameDetail.photo} alt=""/>
-                        <img className=" rounded-xl" src={gameDetail.photo} alt=""/>
+                        <img className=" rounded-xl" src={gameDetail.gp_photo_one} alt=""/>
+                        <img className=" rounded-xl" src={gameDetail.gp_photo_two} alt=""/>
+                        <img className=" rounded-xl" src={gameDetail.gp_photo_three} alt=""/>
                         </Carousel>
                         </div>
                 </div>
@@ -104,6 +112,15 @@ export default function GameDetails() {
                     <p className=" text-3xl font-semibold text-left mx-10">Reviews</p>
                 </div>
 
+                {!user && (
+                    <div className=" flex justify-center">
+                        <div className=" my-5 h-44 w-5/6 rounded-xl review-bg">
+                            <p className=" my-12 text-xl font-semibold">Log in to make a review</p>
+                            </div>
+                    </div>
+                    )}
+
+                {user && (
                 <div className="">
                     <button onClick={() => setIsToggled(!isToggled)} 
                             className=" w-32 h-10 md:w-32 md:h-12 text-sm md:text-base text-center font-semibold rounded-lg">
@@ -111,10 +128,12 @@ export default function GameDetails() {
                     </button>
                     {isToggled && <CreateReview gameDetail={gameDetail}/>}
                 </div>
-                
-                
+                )}
+                            
                 {gameReview.slice(0).reverse().map((gameReview, id) => (  
                 <div className=" flex justify-center">
+                    
+                    {user && (
                     <div className=" relative my-5 h-44 w-5/6 review-bg rounded-xl" key={id}>
                         <div className=" absolute top-4 left-4 h-7 w-7 bg-emerald-300 rounded-full"></div>
                         <p className=" absolute left-16 top-4 text-lg font-semibold">{gameReview.name}</p>
@@ -126,12 +145,45 @@ export default function GameDetails() {
                                 color2={'#ffd700'} />
                         </div>        
                         <p className=" absolute left-12 md:left-16 top-14 md:top-16 text-sm md:text-base">{gameReview.body}</p>
+
+                        {gameReview.name === "Jack Viana" ? (
+
+                            <div>
+                            <button
+                                className=" absolute text-green-400 z-4 text-xs bottom-4 right-16 md:bottom-4 md:right-16 font-semibold"
+                                onClick={() => {
+                                setIsToggledEdit(!isToggledEdit)
+                                setCurrent(gameReview.id)
+                                }}
+                            >
+                                EDIT
+
+                            </button>
+                            {isToggledEdit && isCurrent === gameReview.id ? (
+
+                                <EditReview
+                                user={user}
+                                review={gameReview}
+                                setIsToggledEdit={setIsToggledEdit}
+                                isToggledEdit={isToggledEdit}
+                                />
+                            ) : null}
+                            </div>
+                            ) : null}
+                        <div>
+                            {gameReview.name === "Jack Viana" ? (
+                            <DeleteReview review={gameReview.id}/>
+                            ) : null}
+                            {/* {gameReview.name === user.displayName ? (
+                            <DeleteReview review={gameReview.id}/>
+                            ) : null} */}
+                        </div>
                     </div>
+                    )}
                 </div>
                 ))}
                 
-                    
-            </div>
+            </div> 
         </div>
     )}
 }

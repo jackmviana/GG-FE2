@@ -4,6 +4,8 @@ import ReactStars from 'react-stars'
 import React from 'react'
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import Kratos from "../Assets/Kratos.webp"
+import GOW from "../Assets/GOW.webp"
 
 
 export default function Home() {
@@ -55,19 +57,36 @@ export default function Home() {
                     <li className=" font-light text-xs md:text-xl cursor-default">RPG</li>
                     <li className=" font-light text-xs md:text-xl cursor-default">Strategy</li>
                 </ul>
-                <div>
-                    <p>Played it?</p>
-                    <p>Review it?</p>
-                    
+                <div className=" relative flex justify-center">
+                    <div className=" invisible md:visible mt-10 h-36 w-36 rounded-2xl game-header-card-bg">
+                        <p className=" mt-2 text-sm">Played it?</p>
+                        <p className=" text-xl font-semibold">Review it</p>
+                        <img className=" absolute bottom-0 right-10 w-28" src={Kratos} alt="" />
+                    </div>
                 </div>
             </div>
             </aside>
 
             <div className=" overflow-y-scroll h-screen w-full home-bg">
+                <div className=" flex justify-center">
+                    <div className=" mt-10 relative w-11/12 h-40 md:h-48 rounded-3xl game-header-card-bg">
+                        <div className=" absolute flex flex-col gap-3 md:gap-2 left-6 md:left-12 bottom-10 md:bottom-12">
+                            <p className=" text-xs md:text-xl font-light">The year's over</p>
+                            <p className=" text-xs md:text-2xl font-medium">Here's the best</p>
+                            <p className=" text-xs md:text-2xl font-medium">titles of 2022</p>
+                        </div>
+                        <div className=" absolute bottom-24 right-1 md:bottom-16 md:right-60">
+                            <img className=" w-44 md:w-96 gow" src={GOW} alt="" />
+                        </div>
+                        <div className=" absolute bottom-4 md:bottom-0 right-4 md:right-8">
+                            <img className=" h-28 md:h-52 kratos" src={Kratos} alt="" />
+                        </div>
+                    </div>
+                </div>
                 <div className=" game-card-grid grid sm:grid-cols-1 md:grid-cols-3 gap-y-10 justify-items-center mt-8">
                 {game.map((games) => (
-                <div className=" relative">
-                    <div className=" h-40 w-60 md:w-80 md:h-60 bg-gray-800 grid rounded-xl overflow-hidden game-card" onClick={() => showGame(games)}>
+                <div className=" relative transition-all ease-in-out">
+                    <div style ={{backgroundColor: `${games.color}`}} className=" h-40 w-60 md:w-80 md:h-60 bg-gray-800 grid rounded-3xl overflow-hidden game-card" onClick={() => showGame(games)}>
                         <div className=" w-60 h-28 md:w-80 md:h-40 rounded-t-xl " style ={{backgroundImage: `url(${games.photo})`, backgroundSize: 'cover'}}>
                         </div>
                         <div className="">
@@ -81,7 +100,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className=" absolute top-0 video-div">
-                        <iframe className=" w-60 h-28 md:w-80 md:h-40 rounded-t-xl" src={games.video} title={games.video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe className=" w-60 h-28 md:w-80 md:h-40 rounded-t-3xl" src={games.video} title={games.video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 ))}
