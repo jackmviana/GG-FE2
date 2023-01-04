@@ -96,3 +96,9 @@ button {
 .review-bg {
   background-color: #404040;
 }
+
+.list-card {
+  transition: all .5s ease-in-out;
+  box-shadow: 3px 8px 12px 3px rgba(0, 0, 0, 0.85);
+
+}
