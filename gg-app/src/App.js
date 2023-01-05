@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/auth/login" element={<LogIn />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/games/:id" element={<GameDetails />} />
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/wishlist" element={<Wishlist />} />

@@ -12,11 +12,11 @@ export default function TrackerRemove({ tracker }) {
     event.preventDefault();
     setTrackToTrue();
 
-    // make a copy of the tracker object
+
     const updatedTracker = { ...tracker };
-    // update the track attribute of the copy
+
     updatedTracker.track = track;
-    // pass the copy to the axios.put method as the second argument
+
     await axios.put(`http://localhost:8000/trackerupdate/${tracker.id}`, updatedTracker);
 
     console.log(tracker.id)
@@ -27,7 +27,7 @@ export default function TrackerRemove({ tracker }) {
   return (
     <div>
       
-        <button onClick={handleSubmit} className=" text-2xl font-light bg-transparent">
+        <button onClick={handleSubmit} style ={{color: `${tracker.color}`}} className=" text-3xl font-semibold bg-transparent">
           x
         </button>
       

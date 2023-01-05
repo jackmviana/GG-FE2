@@ -48,7 +48,7 @@ export default function GameDetails() {
             </div>
             <div className=" absolute top-0 w-screen h-64 md:h-96" style={{background: 'linear-gradient(rgba(0,0,0,.3), rgba(24, 24, 24, .8), rgba(24, 24, 24, .9), rgba(24, 24, 24))'}}>
                 <p className=" absolute bottom-12 md:bottom-24 left-3 text-2xl md:left-5 md:text-5xl">{gameDetail.title}</p>
-                <div className=" absolute bottom-7 md:bottom-24 right-1/4 text-2xl md:right-2/4 w-6 h-6 md:w-7 md:h-7 border-lime-400 rounded-lg game-rating">
+                <div className=" absolute bottom-7 md:bottom-16 right-1/4 text-2xl md:right-2/4 w-6 h-6 md:w-7 md:h-7 border-lime-400 rounded-lg game-rating">
                         <p className=" text-sm  md:text-base">{gameDetail.rating}</p>
                 </div>
             </div>

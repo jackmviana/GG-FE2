@@ -12,14 +12,12 @@ export default function TrackerAdd({ tracker, setIsToggledEdit, isToggledEdit })
     event.preventDefault();
     setTrackToTrue();
 
-    // make a copy of the tracker object
     const updatedTracker = { ...tracker };
-    // update the track attribute of the copy
+
     updatedTracker.track = track;
-    // pass the copy to the axios.put method as the second argument
+
     await axios.put(`http://localhost:8000/trackerupdate/${tracker.id}`, updatedTracker);
 
-    // update isToggledEdit after the tracker object has been successfully updated
     setIsToggledEdit(!isToggledEdit);
     console.log(tracker.id)
     console.log(tracker.track)

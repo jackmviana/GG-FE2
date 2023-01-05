@@ -53,7 +53,7 @@ return(
             <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-24 md:mt-0 md:text-sm md:font-medium md:border-0 ">
             <li className='flex gap-3'>
                 <svg className="w-6 h-6" fill="none" stroke=" lightblue" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                <a href="/home" className="block text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-700 md:hover:text-sky-200 md:hover:bg-transparent rounded md:bg-transparent md:text-white md:p-0 ">Home</a>
+                <a href="/" className="block text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-700 md:hover:text-sky-200 md:hover:bg-transparent rounded md:bg-transparent md:text-white md:p-0 ">Home</a>
             </li>
             <li className='flex gap-3'>
                 <svg className="w-6 h-6" fill="none" stroke="lightgreen" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>

@@ -19,11 +19,13 @@ export default function TrackerGameList () {
 
 
     return (
-        <div className=" absolute h-40 w-60 md:w-80 md:h-60 bg-gray-800 rounded-xl p-2 overflow-y-scroll game-card">           
+        <div className=" absolute h-40 w-72 md:w-80 md:h-60 bg-gray-800 rounded-xl p-2 overflow-y-scroll game-card">           
             {gameList && gameList.map((gameLists) => (
             <div key={gameLists.title} className=" flex gap-1 my-4">
                 <div className=" w-4/5">
-                    <p className=" text-left">{gameLists.title}</p>
+                    <div className=" rounded-lg h-7 shadow-xl shadow-black" style ={{backgroundImage: `url(${gameLists.photo})`, backgroundSize: 'cover'}}>
+                        <p className=" font-semibold text-sm md:text-sm text-left game-title">{gameLists.title}</p>
+                    </div>
                 </div>
                 <div className=" w-1/5">
                     <TrackerAdd tracker={gameLists}
