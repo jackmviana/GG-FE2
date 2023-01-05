@@ -90,7 +90,7 @@ export default function Home() {
                         <div className=" w-60 h-28 md:w-80 md:h-40 rounded-t-xl " style ={{backgroundImage: `url(${games.photo})`, backgroundSize: 'cover'}}>
                         </div>
                         <div className="">
-                            <p className=" text-center text-xl text-gray-200 game-title">{games.title}</p>
+                            <p className=" text-center text-xs font-semibold md:font-normal md:text-xl text-gray-200 game-title">{games.title}</p>
                             <ReactStars
                                 className=" flex justify-center"
                                 value={games.star_rating}
