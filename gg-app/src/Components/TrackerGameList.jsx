@@ -19,7 +19,7 @@ export default function TrackerGameList () {
 
 
     return (
-        <div className=" absolute h-40 w-72 md:w-80 md:h-60 bg-gray-800 rounded-xl p-2 overflow-y-scroll game-card">           
+        <div className=" absolute h-56 w-72 md:w-80 md:h-60 bg-gray-800 rounded-xl p-2 overflow-y-scroll game-card">           
             {gameList && gameList.map((gameLists) => (
             <div key={gameLists.title} className=" flex gap-1 my-4">
                 <div className=" w-4/5">

@@ -8,6 +8,7 @@ import {auth} from '../utils/firebase'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import DeleteReview from "../Crud/DeleteReview"
 import EditReview from "../Crud/EditReview"
+import { Link } from "react-router-dom"
 
 export default function GameDetails() {
 
@@ -58,10 +59,14 @@ export default function GameDetails() {
                 <div className=" w-1/2 detail-left mb-20">
                     <div className=" flex gap-5 md:gap-28 justify-center mb-10 mx-10">
                         <div>
-                            <button className=" w-16 h-10 md:w-28 md:h-12 text-xs md:text-base text-center font-semibold rounded-lg">Add to Games</button>
+                            <Link to="/tracker">
+                                <button className=" w-16 h-10 md:w-28 md:h-12 text-xs md:text-base text-center font-semibold rounded-lg">Add to Games</button>
+                            </Link>
                         </div>
                         <div>
-                            <button className=" w-16 h-10 md:w-28 md:h-12 text-xs md:text-base text-center font-semibold rounded-lg">Add to Wishlist</button>
+                            <Link to="/wishlist">
+                                <button className=" w-16 h-10 md:w-28 md:h-12 text-xs md:text-base text-center font-semibold rounded-lg">Add to Wishlist</button>
+                            </Link>
                         </div>
                     </div>
 
