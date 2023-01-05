@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+## GG-FE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image]()
 
-## Available Scripts
 
-In the project directory, you can run:
+## Socials
+- [LinkedIn](https://www.linkedin.com/in/jack-viana/)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+GG is a social app where gamers can browse games, rate, and review them. The biggest feature is a personal tracker, where user can track their progress and completion of any game all in one place. A wishlist is also featured to add games you want to get to at some point.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Get Started
 
-### `npm test`
+- Create an account
+- Browse featured games in the "Featured Games" tab
+- Hover over each game for a video clip to play and brief details about it.
+- Click each game to enter the game details, where details will be displayed, a reviews section, and freinds who played.
+- Navigate to tracker tab in the profile picture menu. Click the blank card to add a game. Click the status toggle to select your progress.
+- You can also go to wishlist page to add games you want to play.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+This site will be built using Django and Python on the backend and React, Javascript and CSS/Tailwind on the frontend. Flowbites components will be implemented. The site will be using the below Sequelize models and React components. Full CRUD operations (POST, GET, PUT, DELETE) will be implemented on at least one model.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Models
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- User
+- Games
+- Reviews
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Components
 
-### `npm run eject`
+- App.js
+- Header.jsx
+- Home.jsx
+- Games.jsx
+- GamesDetails.jsx
+- Sidebar.jsx
+- Profile.jsx
+- ProfileNav.jsx
+- Tracker.jsx
+- Wishlist.jsx
+- Artist.jsx
+- Conversations.jsx
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Figma
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Link - https://www.figma.com/file/lzpsv6ZyDt8E772LDgeeYa/GG?node-id=0%3A1&t=V4Hy6cZmsqQ8vAQl-1
+Link - https://www.figma.com/file/tKTW84wPdPHCmd3fPABGUn/GG?node-id=0%3A1&t=V4Hy6cZmsqQ8vAQl-1
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Trello Board
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Link - https://www.figma.com/file/tKTW84wPdPHCmd3fPABGUn/GG?node-id=0%3A1&t=V4Hy6cZmsqQ8vAQl-1
 
-## Learn More
+## Post-MVP Ideas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Real friends who have played based on backend data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Sources
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- RAWG - https://rawg.io/
+- Flowbites - https://flowbite-react.com/
+- Background video - 
+Stock footage provided by <a class="link author-link-popup" target="_blank" href="https://www.videvo.net/profile/vidfy-A Luna Blue">A Luna Blue</a>,
+downloaded from <a class="videvo-redirect" target="_blank" href="https://www.videvo.net">videvo.net</a>
