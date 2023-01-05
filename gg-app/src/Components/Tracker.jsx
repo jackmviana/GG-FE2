@@ -5,6 +5,7 @@ import TrackerRemove from '../Crud/TrackerRemove';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Progress } from 'flowbite-react';
 import { useNavigate } from 'react-router';
+import { Spinner } from 'flowbite-react';
 
 export default function Tracker() {
 
@@ -33,7 +34,12 @@ let navigate = useNavigate()
 });
 
 if (!game) {
-    return <h2 className=" h-screen loading">LOADING</h2>
+    return  <div className=' detail-bg h-screen'><div className=' detail-bg'><Spinner
+    className=' mt-4'
+    size="xl"
+    color="failure"
+    aria-label="Failure spinner example"
+    /></div></div>
 } else {
     return (
     <div className=' detail-bg h-screen'>

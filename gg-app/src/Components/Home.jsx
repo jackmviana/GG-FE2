@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import Kratos from "../Assets/Kratos.webp"
 import GOW from "../Assets/GOW.webp"
+import { Spinner } from "flowbite-react"
 
 
 export default function Home() {
@@ -29,7 +30,12 @@ export default function Home() {
     }, [])
 
     if (!game) {
-        return <h2 className="loading">LOADING</h2>
+        return <div className=' detail-bg h-screen'><div className=' detail-bg'><Spinner
+        className=' mt-4'
+        size="xl"
+        color="failure"
+        aria-label="Failure spinner example"
+        /></div></div>
     } else {
         return (
         <div className=" flex home-div">
