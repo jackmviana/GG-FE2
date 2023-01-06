@@ -21,7 +21,7 @@ const handleSubmit = async (event) => {
 
     await axios
     .put(`http://localhost:8000/reviewsupdate/${review.id}`, body)
-    
+    window.location.reload();
 }
 
 return (
