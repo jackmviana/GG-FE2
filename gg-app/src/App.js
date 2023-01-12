@@ -7,10 +7,11 @@ import Home from './Components/Home'
 import Tracker from './Components/Tracker'
 import Wishlist from './Components/Wishlist';
 import GameDetails from './Components/GameDetails';
+import mesh from './Assets/mesh.png'
 
 function App() {
   return (
-    <div className=" relative App">
+    <div style={{backgroundImage: `url(${mesh})`, backgroundSize: "cover"}} className=" relative App">
       
       <div className='header'>
       <Header/>
