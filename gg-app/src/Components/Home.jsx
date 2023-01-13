@@ -20,7 +20,7 @@ export default function Home() {
     useEffect(() => {
 
         const getData = async () => {
-            const response = await axios.get("http://localhost:8000/games/")
+            const response = await axios.get("https://gg-heroku.herokuapp.com/games/")
             console.log(response.data[0])
             setGame(response.data) 
         }

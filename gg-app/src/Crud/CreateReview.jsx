@@ -24,7 +24,7 @@ const [body, setBody] = useState({
     body: "",
     rating: newRating,
     user: `${user.displayName}`,
-    game: `http://localhost:8000/games/${gameDetail.id}`
+    game: `https://gg-heroku.herokuapp.com/games/${gameDetail.id}`
 })
 
 
@@ -36,7 +36,7 @@ const handleChange = (e) => {
 const handleSubmit = async (event) => {
     event.preventDefault()
     await axios
-    .post(`http://localhost:8000/reviewspost/`, {
+    .post(`https://gg-heroku.herokuapp.com/reviewspost/`, {
         ...body,
         rating: newRating
     })

@@ -7,7 +7,7 @@ const handleSubmit = async (event) => {
     event.preventDefault()
 
     await axios
-        .delete(`http://localhost:8000/reviewsdelete/${review}`)
+        .delete(`https://gg-heroku.herokuapp.com/reviewsdelete/${review}`)
     window.location.reload();
 }
 

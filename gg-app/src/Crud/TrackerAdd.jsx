@@ -16,7 +16,7 @@ export default function TrackerAdd({ tracker, setIsToggledEdit, isToggledEdit })
 
     updatedTracker.track = track;
 
-    await axios.put(`http://localhost:8000/trackerupdate/${tracker.id}`, updatedTracker);
+    await axios.put(`https://gg-heroku.herokuapp.com/trackerupdate/${tracker.id}`, updatedTracker);
 
     setIsToggledEdit(!isToggledEdit);
     console.log(tracker.id)

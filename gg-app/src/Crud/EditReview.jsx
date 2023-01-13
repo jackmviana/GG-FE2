@@ -20,7 +20,7 @@ const handleSubmit = async (event) => {
     setIsToggledEdit(!isToggledEdit)
 
     await axios
-    .put(`http://localhost:8000/reviewsupdate/${review.id}`, body)
+    .put(`https://gg-heroku.herokuapp.com/reviewsupdate/${review.id}`, body)
     window.location.reload();
 }
 

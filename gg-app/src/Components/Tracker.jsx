@@ -25,7 +25,7 @@ let navigate = useNavigate()
 
     useEffect(() => {
         const getData = async () => {
-        const response = await axios.get('http://localhost:8000/games/');
+        const response = await axios.get('https://gg-heroku.herokuapp.com/games/');
         setGame(response.data);
     };
 

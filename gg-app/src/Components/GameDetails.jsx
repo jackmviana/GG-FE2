@@ -28,7 +28,7 @@ export default function GameDetails() {
     useEffect(() => {
 
         const getData = async () => {
-            const response = await axios.get(`http://localhost:8000/games/${id}`)
+            const response = await axios.get(`https://gg-heroku.herokuapp.com/games/${id}`)
             console.log(response.data)
             setGameDetail(response.data)
             setGameReview(response.data.reviews) 
