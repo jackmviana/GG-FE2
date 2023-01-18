@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useNavigate, useParams } from "react-router"
+import { useParams } from "react-router"
 import { Carousel } from "flowbite-react"
 import ReactStars from "react-stars"
 import axios from "axios"
@@ -117,15 +117,6 @@ export default function GameDetails() {
                     <p className=" text-3xl font-semibold text-left mx-10">Reviews</p>
                 </div>
 
-                {!user && (
-                    <div className=" flex justify-center">
-                        <div className=" my-5 h-44 w-5/6 rounded-xl review-bg">
-                            <p className=" my-12 text-xl font-semibold">Log in to make a review</p>
-                            </div>
-                    </div>
-                    )}
-
-                {user && (
                 <div className="">
                     <button onClick={() => setIsToggled(!isToggled)} 
                             className=" w-32 h-10 md:w-32 md:h-12 text-sm md:text-base text-center font-semibold rounded-lg">
@@ -133,12 +124,10 @@ export default function GameDetails() {
                     </button>
                     {isToggled && <CreateReview gameDetail={gameDetail}/>}
                 </div>
-                )}
                             
                 {gameReview.slice(0).reverse().map((gameReview, id) => (  
                 <div className=" flex justify-center">
                     
-                    {user && (
                     <div className=" relative my-5 h-44 w-5/6 review-bg rounded-xl" key={id}>
                         <div className=" absolute top-4 left-4 h-7 w-7 bg-emerald-300 rounded-full"></div>
                         <p className=" absolute left-16 top-4 text-lg font-semibold">{gameReview.name}</p>
@@ -167,7 +156,6 @@ export default function GameDetails() {
                             {isToggledEdit && isCurrent === gameReview.id ? (
 
                                 <EditReview
-                                user={user}
                                 review={gameReview}
                                 setIsToggledEdit={setIsToggledEdit}
                                 isToggledEdit={isToggledEdit}
@@ -179,12 +167,9 @@ export default function GameDetails() {
                             {gameReview.name === "Jack Viana" ? (
                             <DeleteReview review={gameReview.id}/>
                             ) : null}
-                            {/* {gameReview.name === user.displayName ? (
-                            <DeleteReview review={gameReview.id}/>
-                            ) : null} */}
                         </div>
                     </div>
-                    )}
+                    
                 </div>
                 ))}
                 
