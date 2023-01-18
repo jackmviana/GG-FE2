@@ -1,14 +1,14 @@
 import React from "react"
 import axios from "axios"
 import { useState } from "react"
-import {auth} from '../utils/firebase'
-import {useAuthState} from 'react-firebase-hooks/auth'
+// import {auth} from '../utils/firebase'
+// import {useAuthState} from 'react-firebase-hooks/auth'
 import ReactStars from 'react-stars'
 
 
 export default function CreateReview({ gameDetail }) {
 
-const [user] = useAuthState(auth)
+// const [user] = useAuthState(auth)
 
 let newRating = 0;
 
@@ -19,11 +19,11 @@ const ratingChanged = (rating) => {
 
 const [body, setBody] = useState({
     gameDetail_id: gameDetail.id,
-    name: `${user.displayName}`,
+    name: `Jack Viana`,
     photo: "https://imgur.com/LsLS8Gv.jpg",
     body: "",
     rating: newRating,
-    user: `${user.displayName}`,
+    user: `Jack Viana`,
     game: `https://gg-heroku.herokuapp.com/games/${gameDetail.id}`
 })
 

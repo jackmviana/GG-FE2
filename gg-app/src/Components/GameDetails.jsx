@@ -4,15 +4,15 @@ import { Carousel } from "flowbite-react"
 import ReactStars from "react-stars"
 import axios from "axios"
 import CreateReview from "../Crud/CreateReview"
-import {auth} from '../utils/firebase'
-import {useAuthState} from 'react-firebase-hooks/auth'
+// import {auth} from '../utils/firebase'
+// import {useAuthState} from 'react-firebase-hooks/auth'
 import DeleteReview from "../Crud/DeleteReview"
 import EditReview from "../Crud/EditReview"
 import { Link } from "react-router-dom"
 
 export default function GameDetails() {
 
-    const [user] = useAuthState(auth)
+    // const [user] = useAuthState(auth)
     const [gameDetail, setGameDetail] = useState(null)
     const [gameReview, setGameReview] = useState(" ")
 

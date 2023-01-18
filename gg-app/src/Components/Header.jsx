@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import {auth} from '../utils/firebase'
-import {useAuthState} from 'react-firebase-hooks/auth'
+// import {auth} from '../utils/firebase'
+// import {useAuthState} from 'react-firebase-hooks/auth'
 
 export default function Header() {
 
     
-    const [user, loading] = useAuthState(auth)
+    // const [user, loading] = useAuthState(auth)
 
 
 return(
